@@ -11,9 +11,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        NetworkManager.shared.downloadEmployees { result in
+            switch result {
+            case .success(let employees):
+                print(employees)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
-
-
 }
 
