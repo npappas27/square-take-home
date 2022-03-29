@@ -20,6 +20,7 @@
 		0834401E27F3A25000554EE3 /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834401D27F3A25000554EE3 /* EmployeeCell.swift */; };
 		0834402027F3A2CB00554EE3 /* EmployeePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834401F27F3A2CB00554EE3 /* EmployeePhotoView.swift */; };
 		0834402327F3B58400554EE3 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834402227F3B58400554EE3 /* UIHelper.swift */; };
+		0834402527F3D29300554EE3 /* EmployeeListLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834402427F3D29200554EE3 /* EmployeeListLabelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		0834401D27F3A25000554EE3 /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
 		0834401F27F3A2CB00554EE3 /* EmployeePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeePhotoView.swift; sourceTree = "<group>"; };
 		0834402227F3B58400554EE3 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		0834402427F3D29200554EE3 /* EmployeeListLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListLabelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				0834401F27F3A2CB00554EE3 /* EmployeePhotoView.swift */,
+				0834402427F3D29200554EE3 /* EmployeeListLabelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				0834401127F38AD300554EE3 /* Employee.swift in Sources */,
 				08343FF827F3899500554EE3 /* AppDelegate.swift in Sources */,
 				0834401B27F38F4A00554EE3 /* Employees.swift in Sources */,
+				0834402527F3D29300554EE3 /* EmployeeListLabelView.swift in Sources */,
 				08343FFA27F3899500554EE3 /* SceneDelegate.swift in Sources */,
 				0834401327F38B4300554EE3 /* EmployeeType.swift in Sources */,
 			);

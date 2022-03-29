@@ -5,8 +5,8 @@ class EmployeeCell: UICollectionViewCell {
     static let reuseID = "EmployeeCell"
     
     let employeePhotoView = EmployeePhotoView(frame: .zero)
-    let employeeNameLabel = UILabel(frame: .zero)
-    let employeeTeamLabel = UILabel(frame: .zero)
+    let employeeNameLabel = EmployeeListLabelView(fontSize: 16)
+    let employeeTeamLabel = EmployeeListLabelView(fontSize: 16)
     let padding: CGFloat = 8
     
     override init(frame: CGRect) {
@@ -21,19 +21,15 @@ class EmployeeCell: UICollectionViewCell {
     func set(employee: Employee) {
         employeeNameLabel.text = employee.fullName
         employeeTeamLabel.text = employee.team
-//        employeePhotoView.downloadImage(url: employee.photoUrlSmall)
+        if let photoURL = employee.photoUrlSmall {
+            employeePhotoView.downloadImage(url: photoURL)
+        }
     }
     
     private func configure() {
         addSubview(employeePhotoView)
         addSubview(employeeNameLabel)
         addSubview(employeeTeamLabel)
-        
-        employeeNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        employeeTeamLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        employeeNameLabel.textAlignment = .center
-        
 
         NSLayoutConstraint.activate([
             employeePhotoView.topAnchor.constraint(equalTo: self.topAnchor, constant: padding),

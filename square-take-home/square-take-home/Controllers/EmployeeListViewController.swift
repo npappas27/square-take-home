@@ -18,7 +18,6 @@ class EmployeeListViewController: UIViewController {
         NetworkManager.shared.downloadEmployees { result in
             switch result {
             case .success(let gotEmployees):
-//                print(employees)
                 self.employees = gotEmployees.employees
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
@@ -54,11 +53,10 @@ extension EmployeeListViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard !self.employees.isEmpty else { return UICollectionViewCell() }
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: EmployeeCell.reuseID, for: indexPath) as! EmployeeCell
-        myCell.set(employee: self.employees[indexPath.row])
-        myCell.backgroundColor = UIColor.white
-        return myCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmployeeCell.reuseID, for: indexPath) as! EmployeeCell
+        cell.set(employee: self.employees[indexPath.row])
+        cell.backgroundColor = UIColor.white
+        return cell
     }
-    
     
 }
