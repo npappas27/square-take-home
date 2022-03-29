@@ -1,6 +1,6 @@
 import Foundation
 
-struct Employee: Codable {
+struct Employee: Codable, Hashable {
     var uuid: String
     var fullName: String
     var phoneNumber: String?
