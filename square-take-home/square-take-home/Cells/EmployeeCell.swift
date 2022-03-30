@@ -15,7 +15,7 @@ class EmployeeCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented") // storyboard init
+        fatalError("init(coder:) has not been implemented")
     }
     
     func set(employee: Employee) {

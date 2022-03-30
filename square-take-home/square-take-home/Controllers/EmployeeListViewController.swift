@@ -4,14 +4,13 @@ class EmployeeListViewController: UIViewController {
         
     var employees: [Employee] = []
     var collectionView: UICollectionView!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
         getData()
         configureNavBar()
     }
-
     
     func configureNavBar() {
         self.title = "Employees"
@@ -21,36 +20,29 @@ class EmployeeListViewController: UIViewController {
         navigationItem.rightBarButtonItems = [refreshButton]
     }
     
-    
     @objc func getData() {
-        UIHelper.showLoadingView(view: view)            
-        NetworkManager.shared.downloadEmployees(from: NetworkManager.shared.endpoint) { result in
+        UIHelper.showLoadingView(view: view)
+        NetworkManager.shared.downloadEmployees(from: NetworkManager.shared.emptyEndpoint) { [weak self] result in
+            guard let self = self else { return }
             switch result {
-            case .success(let gotEmployees):
+            case .success(let allEmployees):
                 UIHelper.removeLoadingView()
-                self.employees = gotEmployees.employees
+                guard !allEmployees.employees.isEmpty else {
+                    self.showAlertOnMain(title: "No employees", body: "There are no employees")
+                    return
+                }
+                self.employees = allEmployees.employees
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
-            case .failure(_):
+            case .failure(let error):
+                UIHelper.removeLoadingView()
+                self.showAlertOnMain(title: "Error", body: error.rawValue)
                 return
             }
         }
     }
-    
-    func startAnimating() {
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-            view.addSubview(activityIndicator)
-            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            ])
-            activityIndicator.startAnimating()
-    }
 }
-
 
 extension EmployeeListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     

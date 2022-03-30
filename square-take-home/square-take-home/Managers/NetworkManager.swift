@@ -11,7 +11,7 @@ class NetworkManager {
     
     private init() {}
     
-    func downloadEmployees(from url: String, completed: @escaping (Result<Employees, Error>) -> Void) {
+    func downloadEmployees(from url: String, completed: @escaping (Result<Employees, ErrorMessage>) -> Void) {
         guard let url = URL(string: url) else {
             completed(.failure(ErrorMessage.invalidURL))
             return
@@ -23,7 +23,7 @@ class NetworkManager {
                 return
             }
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(ErrorMessage.invalidResposne)) // fix error message
+                completed(.failure(ErrorMessage.invalidResponse)) // fix error message
                 return
             }
             guard let data = data else {
