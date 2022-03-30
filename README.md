@@ -5,7 +5,7 @@ N/A / Swift 5
     2) Select device target
     3) Run!
 ## What areas of the app did you focus on?
-I focused on building an aesthetically pleasing and efficient employee directory for iPhone utilizing the MVC design pattern. 
+I focused on building an aesthetically pleasing, efficient, and organiazed employee directory utilizing MVC design. 
 ## What was the reason for your focus? What problems were you trying to solve?
 I felt that focusing on building an aesthetically pleasing, efficient, and organized application would best demonstrate my abilties as an iOS engineer.
 

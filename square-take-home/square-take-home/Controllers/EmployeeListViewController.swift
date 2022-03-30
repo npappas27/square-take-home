@@ -12,16 +12,17 @@ class EmployeeListViewController: UIViewController {
         configureNavBar()
     }
     
-    func configureNavBar() {
+    private func configureNavBar() {
         self.title = "Employees"
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getData))
         refreshButton.tintColor = .systemGreen
         navigationItem.rightBarButtonItems = [refreshButton]
     }
     
-    @objc func getData() {
+    @objc private func getData() {
         UIHelper.showLoadingView(view: view)
         NetworkManager.shared.downloadEmployees(from: NetworkManager.shared.endpoint) { [weak self] result in
             guard let self = self else { return }
@@ -34,8 +35,8 @@ class EmployeeListViewController: UIViewController {
                 }
                 self.employees = allEmployees.employees
                 DispatchQueue.main.async {
-                    self.collectionView.reloadData()
                     self.sortCollectionView()
+                    self.collectionView.reloadData()
                 }
             case .failure(let error):
                 UIHelper.removeLoadingView()
@@ -48,7 +49,7 @@ class EmployeeListViewController: UIViewController {
 
 extension EmployeeListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: self.view))
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -67,7 +68,7 @@ extension EmployeeListViewController: UICollectionViewDelegate, UICollectionView
         return cell
     }
     
-    func sortCollectionView() {
+    private func sortCollectionView() {
         employees.sort(by: { $0.team < $1.team })
         collectionView.reloadData()
     }

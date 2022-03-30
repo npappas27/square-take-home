@@ -7,7 +7,7 @@ class NetworkManager {
     public let malformedEndpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json"
     public let emptyEndpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees_empty.json"
     
-    let cache = NSCache<NSString, UIImage>()
+    private let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     

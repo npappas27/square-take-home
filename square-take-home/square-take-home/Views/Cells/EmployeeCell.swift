@@ -43,7 +43,7 @@ class EmployeeCell: UICollectionViewCell {
             employeeNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             employeeNameLabel.heightAnchor.constraint(equalToConstant: 18),
             
-            employeeTeamLabel.topAnchor.constraint(equalTo: employeeNameLabel.bottomAnchor, constant: 4),
+            employeeTeamLabel.topAnchor.constraint(equalTo: employeeNameLabel.bottomAnchor, constant: padding / 2),
             employeeTeamLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding / 2),
             employeeTeamLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding / 2),
             employeeTeamLabel.heightAnchor.constraint(equalToConstant: 40),
