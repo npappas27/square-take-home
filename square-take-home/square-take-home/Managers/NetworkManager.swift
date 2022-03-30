@@ -4,6 +4,9 @@ import UIKit
 class NetworkManager {
     static let shared = NetworkManager()
     let endpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees.json"
+    let malformedEndpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json"
+    let emptyEndpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees_empty.json"
+    
     let cache = NSCache<NSString, UIImage>()
     
     private init() {}
