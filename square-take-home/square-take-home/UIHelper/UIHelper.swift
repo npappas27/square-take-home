@@ -1,5 +1,7 @@
 import UIKit
 
+fileprivate var containerView: UIView!
+
 struct UIHelper {
     static func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {
         let width = view.bounds.width
@@ -13,5 +15,42 @@ struct UIHelper {
         flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 60)
         return flowLayout
+    }
+    
+    static func showEmptyStateView(with message: String, in view: UIView) {
+        let emptyStateView = EmptyStateView(message: message)
+        emptyStateView.frame = view.frame
+        view.addSubview(emptyStateView)
+    }
+    
+    
+    static func showLoadingView(view: UIView) {
+        DispatchQueue.main.async {
+            containerView = UIView(frame: view.bounds)
+            view.addSubview(containerView)
+            containerView.backgroundColor = .systemBackground
+            containerView.alpha = 0
+            UIView.animate(withDuration: 0.25) {
+                containerView.alpha = 0.8
+            }
+            let activityIndicator = UIActivityIndicatorView(style: .large)
+            containerView.addSubview(activityIndicator)
+            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                activityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+                activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+            ])
+            activityIndicator.startAnimating()
+        }
+    }
+    
+    static func removeLoadingView() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.25) {
+                containerView.removeFromSuperview()
+                containerView = nil
+            }
+        }
     }
 }

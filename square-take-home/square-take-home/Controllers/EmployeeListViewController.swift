@@ -7,9 +7,9 @@ class EmployeeListViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCollectionView()
         getData()
         configureNavBar()
-        configureCollectionView()
     }
 
     
@@ -23,11 +23,12 @@ class EmployeeListViewController: UIViewController {
     
     
     @objc func getData() {
+        UIHelper.showLoadingView(view: view)            
         NetworkManager.shared.downloadEmployees(from: NetworkManager.shared.endpoint) { result in
             switch result {
             case .success(let gotEmployees):
+                UIHelper.removeLoadingView()
                 self.employees = gotEmployees.employees
-                print("more data")
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -35,6 +36,18 @@ class EmployeeListViewController: UIViewController {
                 return
             }
         }
+    }
+    
+    func startAnimating() {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+            view.addSubview(activityIndicator)
+            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ])
+            activityIndicator.startAnimating()
     }
 }
 
