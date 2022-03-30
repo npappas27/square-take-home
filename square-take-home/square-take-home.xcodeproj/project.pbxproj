@@ -21,7 +21,6 @@
 		0834402027F3A2CB00554EE3 /* EmployeePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834401F27F3A2CB00554EE3 /* EmployeePhotoView.swift */; };
 		0834402327F3B58400554EE3 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834402227F3B58400554EE3 /* UIHelper.swift */; };
 		0834402527F3D29300554EE3 /* EmployeeListLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834402427F3D29200554EE3 /* EmployeeListLabelView.swift */; };
-		0834402727F3DC8500554EE3 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834402627F3DC8500554EE3 /* EmptyStateView.swift */; };
 		0834403127F3E7CB00554EE3 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834403027F3E7CB00554EE3 /* NetworkManagerTests.swift */; };
 		0834403827F3F56100554EE3 /* EmployeesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834403727F3F56100554EE3 /* EmployeesTest.swift */; };
 		0834403A27F402A400554EE3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0834403927F402A400554EE3 /* AlertView.swift */; };
@@ -55,7 +54,6 @@
 		0834401F27F3A2CB00554EE3 /* EmployeePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeePhotoView.swift; sourceTree = "<group>"; };
 		0834402227F3B58400554EE3 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		0834402427F3D29200554EE3 /* EmployeeListLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListLabelView.swift; sourceTree = "<group>"; };
-		0834402627F3DC8500554EE3 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		0834402E27F3E7CB00554EE3 /* square-take-home-unit-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "square-take-home-unit-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0834403027F3E7CB00554EE3 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		0834403727F3F56100554EE3 /* EmployeesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTest.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 			children = (
 				0834401F27F3A2CB00554EE3 /* EmployeePhotoView.swift */,
 				0834402427F3D29200554EE3 /* EmployeeListLabelView.swift */,
-				0834402627F3DC8500554EE3 /* EmptyStateView.swift */,
 				0834403927F402A400554EE3 /* AlertView.swift */,
 			);
 			path = Views;
@@ -302,7 +299,6 @@
 				08343FFC27F3899500554EE3 /* EmployeeListViewController.swift in Sources */,
 				0834402327F3B58400554EE3 /* UIHelper.swift in Sources */,
 				0834402027F3A2CB00554EE3 /* EmployeePhotoView.swift in Sources */,
-				0834402727F3DC8500554EE3 /* EmptyStateView.swift in Sources */,
 				0834401E27F3A25000554EE3 /* EmployeeCell.swift in Sources */,
 				0834403C27F4091200554EE3 /* UIViewController+Extensions.swift in Sources */,
 				0834401127F38AD300554EE3 /* Employee.swift in Sources */,

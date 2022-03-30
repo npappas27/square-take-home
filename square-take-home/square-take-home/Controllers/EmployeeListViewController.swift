@@ -23,7 +23,7 @@ class EmployeeListViewController: UIViewController {
     
     @objc func getData() {
         UIHelper.showLoadingView(view: view)
-        NetworkManager.shared.downloadEmployees(from: NetworkManager.shared.endpoint) { [weak self] result in
+        NetworkManager.shared.downloadEmployees(from: NetworkManager.shared.emptyEndpoint) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let allEmployees):
@@ -61,10 +61,9 @@ extension EmployeeListViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard !self.employees.isEmpty else { return UICollectionViewCell() }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmployeeCell.reuseID, for: indexPath) as! EmployeeCell
         cell.set(employee: self.employees[indexPath.row])
-        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = UIColor.red
         return cell
     }
 }

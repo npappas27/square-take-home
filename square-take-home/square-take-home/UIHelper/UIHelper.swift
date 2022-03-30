@@ -17,12 +17,6 @@ struct UIHelper {
         return flowLayout
     }
     
-    static func showEmptyStateView(with message: String, in view: UIView) {
-        let emptyStateView = EmptyStateView(message: message)
-        emptyStateView.frame = view.frame
-        view.addSubview(emptyStateView)
-    }
-    
     
     static func showLoadingView(view: UIView) {
         DispatchQueue.main.async {
