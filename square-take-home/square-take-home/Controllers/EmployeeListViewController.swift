@@ -22,7 +22,7 @@ class EmployeeListViewController: UIViewController {
     
     @objc func getData() {
         UIHelper.showLoadingView(view: view)
-        NetworkManager.shared.downloadEmployees(from: NetworkManager.shared.emptyEndpoint) { [weak self] result in
+        NetworkManager.shared.downloadEmployees(from: NetworkManager.shared.endpoint) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let allEmployees):
