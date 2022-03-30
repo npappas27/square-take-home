@@ -17,6 +17,7 @@ class EmployeeListViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getData))
+        refreshButton.tintColor = .systemGreen
         navigationItem.rightBarButtonItems = [refreshButton]
     }
     

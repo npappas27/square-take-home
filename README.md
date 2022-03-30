@@ -1,5 +1,5 @@
 ## Build tools & versions used
-
+N/A / Swift 5
 ## Steps to run the app
     1) Select square-take-home scheme
     2) Select device target

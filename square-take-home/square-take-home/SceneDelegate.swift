@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navC = UINavigationController(rootViewController: EmployeeListViewController())
         window?.rootViewController = navC
         window?.makeKeyAndVisible()
-        UINavigationBar.appearance().tintColor = .systemBlue
+        UINavigationBar.appearance().tintColor = .systemGreen
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
