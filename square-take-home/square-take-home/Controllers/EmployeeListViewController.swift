@@ -4,9 +4,7 @@ class EmployeeListViewController: UIViewController {
         
     var employees: [Employee] = []
     var collectionView: UICollectionView!
-    
-    var photo = EmployeePhotoView(frame: .zero)
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
@@ -14,6 +12,15 @@ class EmployeeListViewController: UIViewController {
         configureCollectionView()
     }
 
+    
+    func configureNavBar() {
+        self.title = "Employees"
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getData))
+        navigationItem.rightBarButtonItems = [refreshButton]
+    }
+    
     
     @objc func getData() {
         NetworkManager.shared.downloadEmployees { result in
@@ -29,14 +36,10 @@ class EmployeeListViewController: UIViewController {
             }
         }
     }
-    
-    func configureNavBar() {
-        self.title = "Employees"
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.prefersLargeTitles = true
-        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getData))
-        navigationItem.rightBarButtonItems = [refreshButton]
-    }
+}
+
+
+extension EmployeeListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: self.view))
@@ -46,10 +49,7 @@ class EmployeeListViewController: UIViewController {
         collectionView.backgroundColor = .systemBackground
         collectionView.register(EmployeeCell.self, forCellWithReuseIdentifier: EmployeeCell.reuseID)
     }
-}
-
-
-extension EmployeeListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.employees.count
     }
