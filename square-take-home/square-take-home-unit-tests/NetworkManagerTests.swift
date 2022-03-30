@@ -24,7 +24,7 @@ class NetworkManagerTests: XCTestCase {
     }
     
     func testValidEndpointHasCorrectNumberOfEmployees() {
-        let promise = expectation(description: "Employee array has correct value of 11")
+        let promise = expectation(description: "Employee array has correct count of 11")
         sut.downloadEmployees(from: sut.endpoint) { result in
             switch result {
             case .success(let employees):
