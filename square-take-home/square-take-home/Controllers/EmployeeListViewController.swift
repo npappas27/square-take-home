@@ -69,7 +69,7 @@ extension EmployeeListViewController: UICollectionViewDelegate, UICollectionView
     }
     
     private func sortCollectionView() {
-        employees.sort(by: { $0.team < $1.team })
+        employees.sort(by: { $0.fullName < $1.fullName })
         collectionView.reloadData()
     }
 }
