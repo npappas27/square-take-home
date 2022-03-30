@@ -1,7 +1,7 @@
 import UIKit
 
 class EmployeePhotoView: UIImageView {
-    let placeholderImage = UIImage(systemName: "person")
+    let placeholderImage = UIImage(named: "nick")
     
     override init(frame: CGRect) {
         super.init(frame: frame)

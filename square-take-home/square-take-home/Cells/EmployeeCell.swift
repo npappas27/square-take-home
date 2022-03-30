@@ -6,7 +6,7 @@ class EmployeeCell: UICollectionViewCell {
     
     let employeePhotoView = EmployeePhotoView(frame: .zero)
     let employeeNameLabel = EmployeeListLabelView(fontSize: 16)
-    let employeeTeamLabel = EmployeeListLabelView(fontSize: 16)
+    let employeeTeamLabel = EmployeeListLabelView(fontSize: 14)
     let padding: CGFloat = 8
     
     override init(frame: CGRect) {
@@ -41,11 +41,11 @@ class EmployeeCell: UICollectionViewCell {
             employeeNameLabel.topAnchor.constraint(equalTo: employeePhotoView.bottomAnchor, constant: padding),
             employeeNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             employeeNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
-            employeeNameLabel.heightAnchor.constraint(equalToConstant: 20),
+            employeeNameLabel.heightAnchor.constraint(equalToConstant: 18),
             
-            employeeTeamLabel.topAnchor.constraint(equalTo: employeeNameLabel.bottomAnchor, constant: padding / 2),
-            employeeTeamLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
-            employeeTeamLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            employeeTeamLabel.topAnchor.constraint(equalTo: employeeNameLabel.bottomAnchor, constant: 4),
+            employeeTeamLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding / 2),
+            employeeTeamLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding / 2),
             employeeTeamLabel.heightAnchor.constraint(equalToConstant: 40),
         ])
     }

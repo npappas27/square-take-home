@@ -23,7 +23,7 @@ class EmployeeListViewController: UIViewController {
     
     @objc func getData() {
         UIHelper.showLoadingView(view: view)
-        NetworkManager.shared.downloadEmployees(from: NetworkManager.shared.emptyEndpoint) { [weak self] result in
+        NetworkManager.shared.downloadEmployees(from: NetworkManager.shared.endpoint) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let allEmployees):
@@ -35,6 +35,7 @@ class EmployeeListViewController: UIViewController {
                 self.employees = allEmployees.employees
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
+                    self.sortCollectionView()
                 }
             case .failure(let error):
                 UIHelper.removeLoadingView()
@@ -63,7 +64,11 @@ extension EmployeeListViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmployeeCell.reuseID, for: indexPath) as! EmployeeCell
         cell.set(employee: self.employees[indexPath.row])
-        cell.backgroundColor = UIColor.red
         return cell
+    }
+    
+    func sortCollectionView() {
+        employees.sort(by: { $0.team < $1.team })
+        collectionView.reloadData()
     }
 }
