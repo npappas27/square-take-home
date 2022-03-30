@@ -29,7 +29,7 @@ class EmployeeListLabelView: UILabel {
         self.textColor = .label
         self.adjustsFontSizeToFitWidth = true
         self.minimumScaleFactor = 0.9
-        self.lineBreakMode = .byTruncatingTail
+        self.lineBreakMode = .byWordWrapping
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
