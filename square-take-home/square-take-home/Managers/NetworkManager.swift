@@ -19,15 +19,15 @@ class NetworkManager {
         
         let dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {
-                completed(.failure(ErrorMessage.invalidURL)) // fix error message
+                completed(.failure(ErrorMessage.invalidURL))
                 return
             }
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(.failure(ErrorMessage.invalidResponse)) // fix error message
+                completed(.failure(ErrorMessage.invalidResponse))
                 return
             }
             guard let data = data else {
-                completed(.failure(ErrorMessage.invalidData)) // fix error message
+                completed(.failure(ErrorMessage.invalidData))
                 return
             }
             do {
@@ -37,7 +37,7 @@ class NetworkManager {
                 completed(.success(employees))
             }
             catch {
-                completed(.failure(ErrorMessage.decodingError)) // fix error message
+                completed(.failure(ErrorMessage.decodingError))
             }
         }
         dataTask.resume()

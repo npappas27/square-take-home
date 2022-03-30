@@ -35,8 +35,8 @@ class EmployeeCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             employeePhotoView.topAnchor.constraint(equalTo: self.topAnchor, constant: padding),
             employeePhotoView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
-            employeePhotoView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding), // trailing and bottom have to be negative padding
-            employeePhotoView.heightAnchor.constraint(equalTo: employeePhotoView.widthAnchor), // constrain width to height to keep things square
+            employeePhotoView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            employeePhotoView.heightAnchor.constraint(equalTo: employeePhotoView.widthAnchor),
             
             employeeNameLabel.topAnchor.constraint(equalTo: employeePhotoView.bottomAnchor, constant: padding),
             employeeNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),

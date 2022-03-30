@@ -17,7 +17,6 @@ struct UIHelper {
         return flowLayout
     }
     
-    
     static func showLoadingView(view: UIView) {
         DispatchQueue.main.async {
             containerView = UIView(frame: view.bounds)
