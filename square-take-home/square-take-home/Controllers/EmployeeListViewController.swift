@@ -23,7 +23,7 @@ class EmployeeListViewController: UIViewController {
     
     
     @objc func getData() {
-        NetworkManager.shared.downloadEmployees { result in
+        NetworkManager.shared.downloadEmployees(from: NetworkManager.shared.endpoint) { result in
             switch result {
             case .success(let gotEmployees):
                 self.employees = gotEmployees.employees

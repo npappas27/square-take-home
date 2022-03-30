@@ -3,16 +3,16 @@ import UIKit
 
 class NetworkManager {
     static let shared = NetworkManager()
-    let endpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees.json"
-    let malformedEndpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json"
-    let emptyEndpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees_empty.json"
+    public let endpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees.json"
+    public let malformedEndpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json"
+    public let emptyEndpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees_empty.json"
     
     let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     
-    func downloadEmployees(completed: @escaping (Result<Employees, Error>) -> Void) {
-        guard let url = URL(string: endpoint) else {
+    func downloadEmployees(from url: String, completed: @escaping (Result<Employees, Error>) -> Void) {
+        guard let url = URL(string: url) else {
             completed(.failure(ErrorMessage.invalidURL))
             return
         }
