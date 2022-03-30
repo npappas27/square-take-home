@@ -10,15 +10,17 @@ class EmployeeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
-        configureView()
+        configureNavBar()
         configureCollectionView()
     }
+
     
-    func getData() {
+    @objc func getData() {
         NetworkManager.shared.downloadEmployees { result in
             switch result {
             case .success(let gotEmployees):
                 self.employees = gotEmployees.employees
+                print("more data")
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -28,11 +30,12 @@ class EmployeeListViewController: UIViewController {
         }
     }
     
-    func configureView() {
+    func configureNavBar() {
         self.title = "Employees"
-        view.backgroundColor = .orange
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(getData))
+        navigationItem.rightBarButtonItems = [refreshButton]
     }
     
     func configureCollectionView() {
@@ -40,7 +43,7 @@ class EmployeeListViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
-        collectionView.backgroundColor = .systemBlue
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(EmployeeCell.self, forCellWithReuseIdentifier: EmployeeCell.reuseID)
     }
 }
@@ -58,5 +61,4 @@ extension EmployeeListViewController: UICollectionViewDelegate, UICollectionView
         cell.backgroundColor = UIColor.white
         return cell
     }
-    
 }
